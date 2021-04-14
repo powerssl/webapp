@@ -1,0 +1,482 @@
+/**
+ * @fileoverview gRPC-Web generated client stub for powerssl.apiserver.v1
+ * @enhanceable
+ * @public
+ */
+
+// GENERATED CODE -- DO NOT EDIT!
+
+
+/* eslint-disable */
+// @ts-nocheck
+
+
+
+const grpc = {};
+grpc.web = require('grpc-web');
+
+
+var google_protobuf_empty_pb = require('google-protobuf/google/protobuf/empty_pb.js')
+
+var google_protobuf_field_mask_pb = require('google-protobuf/google/protobuf/field_mask_pb.js')
+
+var google_protobuf_timestamp_pb = require('google-protobuf/google/protobuf/timestamp_pb.js')
+const proto = {};
+proto.powerssl = {};
+proto.powerssl.apiserver = {};
+proto.powerssl.apiserver.v1 = require('./certificate_pb.js');
+
+/**
+ * @param {string} hostname
+ * @param {?Object} credentials
+ * @param {?Object} options
+ * @constructor
+ * @struct
+ * @final
+ */
+proto.powerssl.apiserver.v1.CertificateServiceClient =
+    function(hostname, credentials, options) {
+  if (!options) options = {};
+  options['format'] = 'binary';
+
+  /**
+   * @private @const {!grpc.web.GrpcWebClientBase} The client
+   */
+  this.client_ = new grpc.web.GrpcWebClientBase(options);
+
+  /**
+   * @private @const {string} The hostname
+   */
+  this.hostname_ = hostname;
+
+};
+
+
+/**
+ * @param {string} hostname
+ * @param {?Object} credentials
+ * @param {?Object} options
+ * @constructor
+ * @struct
+ * @final
+ */
+proto.powerssl.apiserver.v1.CertificateServicePromiseClient =
+    function(hostname, credentials, options) {
+  if (!options) options = {};
+  options['format'] = 'binary';
+
+  /**
+   * @private @const {!grpc.web.GrpcWebClientBase} The client
+   */
+  this.client_ = new grpc.web.GrpcWebClientBase(options);
+
+  /**
+   * @private @const {string} The hostname
+   */
+  this.hostname_ = hostname;
+
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.powerssl.apiserver.v1.CreateCertificateRequest,
+ *   !proto.powerssl.apiserver.v1.Certificate>}
+ */
+const methodDescriptor_CertificateService_Create = new grpc.web.MethodDescriptor(
+  '/powerssl.apiserver.v1.CertificateService/Create',
+  grpc.web.MethodType.UNARY,
+  proto.powerssl.apiserver.v1.CreateCertificateRequest,
+  proto.powerssl.apiserver.v1.Certificate,
+  /**
+   * @param {!proto.powerssl.apiserver.v1.CreateCertificateRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.powerssl.apiserver.v1.Certificate.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.powerssl.apiserver.v1.CreateCertificateRequest,
+ *   !proto.powerssl.apiserver.v1.Certificate>}
+ */
+const methodInfo_CertificateService_Create = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.powerssl.apiserver.v1.Certificate,
+  /**
+   * @param {!proto.powerssl.apiserver.v1.CreateCertificateRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.powerssl.apiserver.v1.Certificate.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.powerssl.apiserver.v1.CreateCertificateRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.powerssl.apiserver.v1.Certificate)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.powerssl.apiserver.v1.Certificate>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.powerssl.apiserver.v1.CertificateServiceClient.prototype.create =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/powerssl.apiserver.v1.CertificateService/Create',
+      request,
+      metadata || {},
+      methodDescriptor_CertificateService_Create,
+      callback);
+};
+
+
+/**
+ * @param {!proto.powerssl.apiserver.v1.CreateCertificateRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.powerssl.apiserver.v1.Certificate>}
+ *     Promise that resolves to the response
+ */
+proto.powerssl.apiserver.v1.CertificateServicePromiseClient.prototype.create =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/powerssl.apiserver.v1.CertificateService/Create',
+      request,
+      metadata || {},
+      methodDescriptor_CertificateService_Create);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.powerssl.apiserver.v1.DeleteCertificateRequest,
+ *   !proto.google.protobuf.Empty>}
+ */
+const methodDescriptor_CertificateService_Delete = new grpc.web.MethodDescriptor(
+  '/powerssl.apiserver.v1.CertificateService/Delete',
+  grpc.web.MethodType.UNARY,
+  proto.powerssl.apiserver.v1.DeleteCertificateRequest,
+  google_protobuf_empty_pb.Empty,
+  /**
+   * @param {!proto.powerssl.apiserver.v1.DeleteCertificateRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  google_protobuf_empty_pb.Empty.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.powerssl.apiserver.v1.DeleteCertificateRequest,
+ *   !proto.google.protobuf.Empty>}
+ */
+const methodInfo_CertificateService_Delete = new grpc.web.AbstractClientBase.MethodInfo(
+  google_protobuf_empty_pb.Empty,
+  /**
+   * @param {!proto.powerssl.apiserver.v1.DeleteCertificateRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  google_protobuf_empty_pb.Empty.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.powerssl.apiserver.v1.DeleteCertificateRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.google.protobuf.Empty)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.google.protobuf.Empty>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.powerssl.apiserver.v1.CertificateServiceClient.prototype.delete =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/powerssl.apiserver.v1.CertificateService/Delete',
+      request,
+      metadata || {},
+      methodDescriptor_CertificateService_Delete,
+      callback);
+};
+
+
+/**
+ * @param {!proto.powerssl.apiserver.v1.DeleteCertificateRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.google.protobuf.Empty>}
+ *     Promise that resolves to the response
+ */
+proto.powerssl.apiserver.v1.CertificateServicePromiseClient.prototype.delete =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/powerssl.apiserver.v1.CertificateService/Delete',
+      request,
+      metadata || {},
+      methodDescriptor_CertificateService_Delete);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.powerssl.apiserver.v1.GetCertificateRequest,
+ *   !proto.powerssl.apiserver.v1.Certificate>}
+ */
+const methodDescriptor_CertificateService_Get = new grpc.web.MethodDescriptor(
+  '/powerssl.apiserver.v1.CertificateService/Get',
+  grpc.web.MethodType.UNARY,
+  proto.powerssl.apiserver.v1.GetCertificateRequest,
+  proto.powerssl.apiserver.v1.Certificate,
+  /**
+   * @param {!proto.powerssl.apiserver.v1.GetCertificateRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.powerssl.apiserver.v1.Certificate.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.powerssl.apiserver.v1.GetCertificateRequest,
+ *   !proto.powerssl.apiserver.v1.Certificate>}
+ */
+const methodInfo_CertificateService_Get = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.powerssl.apiserver.v1.Certificate,
+  /**
+   * @param {!proto.powerssl.apiserver.v1.GetCertificateRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.powerssl.apiserver.v1.Certificate.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.powerssl.apiserver.v1.GetCertificateRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.powerssl.apiserver.v1.Certificate)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.powerssl.apiserver.v1.Certificate>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.powerssl.apiserver.v1.CertificateServiceClient.prototype.get =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/powerssl.apiserver.v1.CertificateService/Get',
+      request,
+      metadata || {},
+      methodDescriptor_CertificateService_Get,
+      callback);
+};
+
+
+/**
+ * @param {!proto.powerssl.apiserver.v1.GetCertificateRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.powerssl.apiserver.v1.Certificate>}
+ *     Promise that resolves to the response
+ */
+proto.powerssl.apiserver.v1.CertificateServicePromiseClient.prototype.get =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/powerssl.apiserver.v1.CertificateService/Get',
+      request,
+      metadata || {},
+      methodDescriptor_CertificateService_Get);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.powerssl.apiserver.v1.ListCertificatesRequest,
+ *   !proto.powerssl.apiserver.v1.ListCertificatesResponse>}
+ */
+const methodDescriptor_CertificateService_List = new grpc.web.MethodDescriptor(
+  '/powerssl.apiserver.v1.CertificateService/List',
+  grpc.web.MethodType.UNARY,
+  proto.powerssl.apiserver.v1.ListCertificatesRequest,
+  proto.powerssl.apiserver.v1.ListCertificatesResponse,
+  /**
+   * @param {!proto.powerssl.apiserver.v1.ListCertificatesRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.powerssl.apiserver.v1.ListCertificatesResponse.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.powerssl.apiserver.v1.ListCertificatesRequest,
+ *   !proto.powerssl.apiserver.v1.ListCertificatesResponse>}
+ */
+const methodInfo_CertificateService_List = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.powerssl.apiserver.v1.ListCertificatesResponse,
+  /**
+   * @param {!proto.powerssl.apiserver.v1.ListCertificatesRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.powerssl.apiserver.v1.ListCertificatesResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.powerssl.apiserver.v1.ListCertificatesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.powerssl.apiserver.v1.ListCertificatesResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.powerssl.apiserver.v1.ListCertificatesResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.powerssl.apiserver.v1.CertificateServiceClient.prototype.list =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/powerssl.apiserver.v1.CertificateService/List',
+      request,
+      metadata || {},
+      methodDescriptor_CertificateService_List,
+      callback);
+};
+
+
+/**
+ * @param {!proto.powerssl.apiserver.v1.ListCertificatesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.powerssl.apiserver.v1.ListCertificatesResponse>}
+ *     Promise that resolves to the response
+ */
+proto.powerssl.apiserver.v1.CertificateServicePromiseClient.prototype.list =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/powerssl.apiserver.v1.CertificateService/List',
+      request,
+      metadata || {},
+      methodDescriptor_CertificateService_List);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.powerssl.apiserver.v1.UpdateCertificateRequest,
+ *   !proto.powerssl.apiserver.v1.Certificate>}
+ */
+const methodDescriptor_CertificateService_Update = new grpc.web.MethodDescriptor(
+  '/powerssl.apiserver.v1.CertificateService/Update',
+  grpc.web.MethodType.UNARY,
+  proto.powerssl.apiserver.v1.UpdateCertificateRequest,
+  proto.powerssl.apiserver.v1.Certificate,
+  /**
+   * @param {!proto.powerssl.apiserver.v1.UpdateCertificateRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.powerssl.apiserver.v1.Certificate.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.powerssl.apiserver.v1.UpdateCertificateRequest,
+ *   !proto.powerssl.apiserver.v1.Certificate>}
+ */
+const methodInfo_CertificateService_Update = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.powerssl.apiserver.v1.Certificate,
+  /**
+   * @param {!proto.powerssl.apiserver.v1.UpdateCertificateRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.powerssl.apiserver.v1.Certificate.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.powerssl.apiserver.v1.UpdateCertificateRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.powerssl.apiserver.v1.Certificate)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.powerssl.apiserver.v1.Certificate>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.powerssl.apiserver.v1.CertificateServiceClient.prototype.update =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/powerssl.apiserver.v1.CertificateService/Update',
+      request,
+      metadata || {},
+      methodDescriptor_CertificateService_Update,
+      callback);
+};
+
+
+/**
+ * @param {!proto.powerssl.apiserver.v1.UpdateCertificateRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.powerssl.apiserver.v1.Certificate>}
+ *     Promise that resolves to the response
+ */
+proto.powerssl.apiserver.v1.CertificateServicePromiseClient.prototype.update =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/powerssl.apiserver.v1.CertificateService/Update',
+      request,
+      metadata || {},
+      methodDescriptor_CertificateService_Update);
+};
+
+
+module.exports = proto.powerssl.apiserver.v1;
+
