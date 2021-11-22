@@ -11,7 +11,7 @@ export default {
   },
   computed: {
     src() {
-      const uri = "https://localhost:8843";
+      const uri = this.$appConfig.authURI;
       return `${uri}${this.action ? `/?${this.action}` : ""}`;
     },
   },
@@ -20,12 +20,12 @@ export default {
       setTimeout(() => {
         this.$refs.iframeRef.contentWindow.postMessage(
           { action: "logout" },
-          "https://localhost:8843"
+          this.$appConfig.authURI
         );
       }, 500);
     },
     receiveMessage(event) {
-      if (event.origin !== "https://localhost:8843") return;
+      if (event.origin !== this.$appConfig.authURI) return;
       if (typeof event.data !== "object" || event.data === null) return;
       console.log(event.data);
       switch (event.data.action) {

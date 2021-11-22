@@ -2,16 +2,12 @@ const state = {
   token: localStorage.getItem("token"),
 };
 
-const actions = {
-  logout(context) {
-    context.commit("logout");
-  },
-};
-
 const getters = {
   isAuthenticated: (state) => !!state.token,
-  isUnauthenticated: (state) => !state.token,
   token: (state) => state.token,
+  metadata: () => {
+    return { Authorization: `Bearer ${state.token}` };
+  },
 };
 
 const mutations = {
@@ -29,7 +25,6 @@ const mutations = {
 export default {
   namespaced: true,
   state,
-  actions,
   getters,
   mutations,
 };

@@ -32,9 +32,27 @@ const routes = [
   },
   {
     path: "/acmeServers",
-    name: "ACMEServers",
+    name: "ACMEServersIndex",
     component: () =>
-      import(/* webpackChunkName: "acmeServers" */ "../views/ACMEServers.vue"),
+      import(
+        /* webpackChunkName: "acmeServersIndex" */ "../views/ACMEServers/Index.vue"
+      ),
+  },
+  {
+    path: "/acmeServers/new",
+    name: "ACMEServersNew",
+    component: () =>
+      import(
+        /* webpackChunkName: "newACMEServerNew" */ "../views/ACMEServers/New.vue"
+      ),
+  },
+  {
+    path: "/acmeServers/:acmeServerId",
+    name: "ACMEServersShow",
+    component: () =>
+      import(
+        /* webpackChunkName: "newACMEServerNew" */ "../views/ACMEServers/Show.vue"
+      ),
   },
 ];
 

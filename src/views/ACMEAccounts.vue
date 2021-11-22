@@ -32,7 +32,7 @@ export default {
   },
   created: function () {
     this.acmeServerServiceClient = new ACMEAccountServiceClient(
-      "https://localhost:8883",
+      this.$appConfig.grpcWebURI,
       null,
       null
     );
@@ -44,9 +44,10 @@ export default {
       this.loading = true;
 
       const request = new ListACMEAccountsRequest();
+      request.setParent("-");
       this.acmeServerServiceClient.list(
         request,
-        { Authorization: `Bearer ${this.$store.getters["auth/token"]}` },
+        this.$store.getters["auth/metadata"],
         (err, response) => {
           this.loading = false;
           if (err) {

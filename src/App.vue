@@ -1,41 +1,10 @@
 <template>
   <div id="app">
     <router-view v-if="$route.name === 'SignIn'" />
-    <nav v-if="$route.name !== 'SignIn'" class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-      <b-link :to="{ name: 'Dashboard' }" class="navbar-brand col-md-3 col-lg-2 mr-0 px-3">PowerSSL</b-link>
-<!--      <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">-->
-      <ul class="navbar-nav px-3">
-        <li class="nav-item text-nowrap">
-          <b-link :to="{ name: 'SignOut' }" class="nav-link">Sign out</b-link>
-        </li>
-      </ul>
-    </nav>
+    <Header />
     <div v-if="$route.name !== 'SignIn'" class="container-fluid">
       <div class="row">
-        <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
-          <div class="sidebar-sticky pt-3">
-            <ul class="nav flex-column">
-              <li class="nav-item">
-                <b-link :to="{ name: 'Dashboard' }" class="nav-link">
-                  <span data-feather="home"></span>
-                  Dashboard <span class="sr-only">(current)</span>
-                </b-link>
-              </li>
-              <li class="nav-item">
-                <b-link :to="{ name: 'ACMEAccounts' }" class="nav-link">
-                  <span data-feather="file"></span>
-                  ACME Accounts
-                </b-link>
-              </li>
-              <li class="nav-item">
-                <b-link :to="{ name: 'ACMEServers' }" class="nav-link">
-                  <span data-feather="file"></span>
-                  ACME Servers
-                </b-link>
-              </li>
-            </ul>
-          </div>
-        </nav>
+        <Navigation />
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
           <router-view />
@@ -44,6 +13,20 @@
     </div>
   </div>
 </template>
+
+
+<script>
+import Header from "@/components/Header";
+import Navigation from "@/components/Navigation";
+
+export default {
+  name: "App",
+  components: {
+    Header,
+    Navigation,
+  },
+};
+</script>
 
 <style>
 body {
